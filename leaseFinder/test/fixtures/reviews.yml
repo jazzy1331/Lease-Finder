@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  # propertyID: 1
+  review: MyText
+  stars: 1
+
+two:
+  # propertyID: 1
+  review: MyText
+  stars: 1

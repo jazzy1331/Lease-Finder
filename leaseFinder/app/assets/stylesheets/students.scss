@@ -1,0 +1,51 @@
+// Place all the styles related to the Students controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Edited by Daniel Lim on 4/21/20: added css
+
+.heading {
+	margin-bottom: 1rem;
+	border-bottom: 1px solid black;
+}
+
+.sublet_post_heading {
+	margin-bottom: 1rem;
+	border-bottom: 1px solid black;
+	margin-top: 1rem;
+}
+.btn {
+	margin-bottom: 20px;
+}
+
+.left { 
+	float:left;  
+	width:50%; 
+} 
+.right{ 
+	float:right; 
+	width:50%; 
+}
+
+.subletEdit {
+	margin-top: 20px; 
+} 
+
+.post{
+	color: black;
+}
+
+.post:hover {
+ text-decoration: none;
+ background-color: transparent;
+ color: black;
+}
+
+.name {
+	color: black;
+}
+
+.name:hover {
+ text-decoration: none;
+ background-color: transparent;
+ color: black;
+}

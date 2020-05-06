@@ -1,0 +1,94 @@
+<!--Created 4/19/20 by Jas Bawa: Copied show.html and commented out the header-->
+<!--Edited 4/21/20 by Jas Bawa: Moved everything into a bootstrap card layout, added star icons-->
+
+<p id="notice"><%= notice %></p>
+
+
+<!--<h1><%#=@property.address %></h1>-->
+
+<div class="card-deck d-flex justify-content-center">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h3>Landlord Info</h3>
+
+      <p>
+        <strong>Name:</strong>
+        <%= @property.landlord.name %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @property.landlord.email %>
+      </p>
+
+      <p>
+        <strong>Phone:</strong>
+        <%= @property.landlord.phone %>
+      </p>
+
+      <p>
+        <strong>Website:</strong>
+        <%= @property.landlord.website %>
+      </p>
+    </div>
+  </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <h3>Property Specifications</h3>
+
+        <p>
+          <strong>Bedrooms:</strong>
+          <%= @property.total_bedrooms %>
+        </p>
+
+        <p>
+          <strong>Bathrooms:</strong>
+          <%= @property.total_bathrooms %>
+        </p>
+
+        <p>
+          <strong>Pet Friendly?:</strong>
+          <% if @property.pet_friendly %>
+            Yes!
+          <%else %>
+            No
+          <%end %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+<h3>Reviews</h3>
+
+<div class="card-columns">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h3 class="card-title">Write a Review</h3>
+      <%if student_logged_in? %>
+        <%= render 'reviews/form', review: @all_reviews%>
+      <%else%>
+        <p>You must be signed in as a student to leave a review!</p>
+      <%end %>
+    </div>
+  </div>
+
+  <%@reviews.each do |review| %>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <p>
+        <%review.stars.times do %>
+            <i class="fas fa-star"></i>
+        <%end %>
+          <%(5-review.stars).times do %>
+            <i class="far fa-star"></i>
+          <%end %>
+        </p>
+          <blockquote class="blockquote mb-0">
+            <p><%= review.review %></p><footer class="blockquote-footer"><p><%=review.student.fname %> <%=review.student.lname %> - <%=review.created_at %> </p></footer>
+          </blockquote>
+      </div>
+    </div>
+  <%end %>
+</div>
+<%#= link_to 'Edit', edit_property_path(@property) %>
+<%#= link_to 'Back', properties_path %>

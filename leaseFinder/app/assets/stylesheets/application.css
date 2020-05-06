@@ -1,0 +1,142 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*Content Started on 4/21/20 by Jas Bawa: Added classes for utility icons*/
+/*Edited on 4/22/2020 by Lang Xu: Added login form classes and other modifications*/
+/*Edited on 4/22/2020 by Daniel: Added css for a tag*/
+
+body{
+    background-color: #be5652;
+    margin: 0px;
+    font-weight: bold;
+}
+
+h2{
+    font-weight: 900;
+}
+
+a.stu_sec_button:visited{
+    color: black;
+}
+
+a.stu_button {
+    color: white;
+}
+
+a.stu_button:visited{
+    color: white;
+}
+
+.main-body{
+    margin: 33px;
+}
+
+.card, .list-group-item{
+    background-color: #ebebeb;
+}
+
+.true-util{
+    color:green;
+}
+
+.false-util{
+    opacity: 20%;
+}
+
+.form-login {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+h1,h2
+{
+     border-bottom: none;
+}
+
+a.title{
+ text-decoration: none;
+ background-color: transparent;
+ color: black;
+}
+
+.nav-link{
+ text-decoration: none;
+ background-color: transparent;
+ color: black;
+}
+
+.nav-link:hover, a.title:hover{
+ background-color: #d6d6d6;
+ color: black;
+}
+
+.nav-item:first-child {
+	margin-left: 8px;
+}
+
+.navbar{
+    background-color: #ebebeb;
+}
+
+.nav-link:visited{
+    color:black;
+}
+
+.nav-title{
+    color: black;
+}
+
+/*.navbar{*/
+/*    width: 100%;*/
+/*}*/
+
+.ed-del-btn {
+	color:black;
+	border-color: transparent;
+	background-color: transparent;
+	font-size: 20px;
+}
+
+.ed-del-btn:hover {
+	color:black;
+	background-color:gray;
+	border-color:transparent;
+}
+
+.ed-del-btn:visited {
+	color:black;
+}
+
+.ed-del-btn:active {
+	color:black;
+	background-color:gray;
+	border-color:transparent;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 300px 300px;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 20px 0;
+}

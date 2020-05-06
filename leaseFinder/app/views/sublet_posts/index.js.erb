@@ -1,0 +1,9 @@
+/* 
+	Created 4/20/20 by Juhee Park: for adding filterritic
+
+*/
+
+<% js = escape_javascript(
+  render(partial: 'sublet_posts/list', locals: { sublet_posts: @sublet_posts })
+) %>
+$("#filterrific_results").html("<%= js %>");

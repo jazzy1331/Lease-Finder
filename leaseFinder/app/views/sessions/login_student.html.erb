@@ -1,0 +1,20 @@
+<!--
+Created by Lang Xu 4/19/2020, log in view for students
+Edited by Lang Xu 4/22/2020, log in form styling for students
+-->
+  <div class = "text-center" style = "padding-top:50px">
+    <%= form_for(:session, url: login_student_path,html:{class:'form-login'}) do |f| %>
+      <h1 class="h3 mb-3 font-weight-normal">Log in as a Student!</h1>
+      <%= f.label :email,class: "sr-only"%>
+      <%= f.email_field :email, class: 'form-control',placeholder: 'Email Address',style: "margin-bottom: 15px" %>
+
+      <%= f.label :password,class: "sr-only" %>
+      <%= f.password_field :password, class: 'form-control',placeholder: "Password",style: "margin-bottom: 15px" %>
+
+      <%= f.submit "Log in", class: "btn btn-secondary" %>
+    <% end %>
+    <p>
+    <%= link_to 'New Student account', new_student_path, {:style=>'padding-right: 10px;', :class=>'btn btn-secondary stu_button'} %>
+    <%= link_to 'New Landlord account', new_landlord_path, {:class=>'btn btn-secondary stu_button'}%>
+    </p>
+  </div>

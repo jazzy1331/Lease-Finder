@@ -1,0 +1,38 @@
+Testing documentation for sublet post page (which also includes the property information and review information)
+File created on 4/24/2020 by Jas Bawa
+
+- The title of the page, "Lease Finder", is visible
+
+- Navigation Bar is visible and each link connects to the appropriate page when clicked
+
+- The correct address shows on the top
+
+- There should be three rows of property and sublet post card, plus a write a review card, and 0 or more review cards
+
+- The first row of cards has two cards which contain sublet post information
+    - The left card should have specific contract details: occupants, bedrooms available, Monthly Rent, and start and end dates
+    - The right card should have general lease details: if it's furnished, if there's parking available, any house rules,
+      if it's available, and any description (if available)
+
+- The second row has one card, spanning the full width of the body. This row contains icons representing each utility
+  plus an other utility icon at the end. If the utility is included in the rent for that sublease, it should be lit up green
+  otherwise it should be gray and partially opaque. Also, when you leave your mouse over the icon for a small period, a
+  tooltip should pop up saying: utility + ("included" | "not included").
+
+- The third row has two cards, which contain property information
+    - The first card is landlord information for this specific property. The details include: landlord name, landlord email,
+      landlord phone number, and landlord website.
+    - The second card on the right is property information. Details include the total number of bedrooms, bathrooms, and
+      if it is pet friendly.
+
+- For all of the above cards, if the model field is a boolean, an appropriate result should appear on the screen (as opposed
+  to true or false). Some are, "yes" | "no", "included"| "not included", etc.
+
+- Below the three rows, is a header for "Reviews", and contains all review data
+    - There should be a write a review card for as the top left card among all review cards. This card should have a form
+      with fields for the number of stars and the review itself. This form is only visible if the user is signed in as a student.
+      Otherwise the form is replace with text prompting the user to sign in as a student if they wish to leave a review.
+    - The rest of the page contains any and all reviews left for that property. The reviews show up in a masonry brick style,
+      going a left to right, top to bottom list.
+
+- Checking that all styling, bootstrap and user-defined, is showing up as expected.

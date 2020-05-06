@@ -1,0 +1,40 @@
+Testing documentation for student account page
+File created on 4/24/2020 by Daniel Lim
+
+Test Plan for the student profile page 
+
+- Navigation Bar is visible and each link connects to the appropriate page when clicked
+
+- In the "Account" section:
+	-	Each details is shown except password which should show "*"
+	-	There should be two buttons, "Edit Profile" and "Delete Profile" 
+
+- Upon clicking the "Edit Profile" button:
+	-	It should display a new page to update the student profile
+	-	After finishing updating, by clicking "Update it!" will update the account page with a message informing that they have updated.
+
+- Update clicking the "Delete Profile" button:
+	-	It should display a pop up message asking the user to confirm they want to delete their profile 
+	- 	Upon clicking "Cancel", the user's profile will not be deleted
+	- 	Upon clicking "Ok", the user's profile will be deleted
+
+- In the "Sublet Post" section:
+	- 	There should be a "Create New Sublet Post" button
+	-	There should be sublet post of the student under the sublet post heading. Each displayed as a card
+	-	In each sublet post card:
+		-	Upon clicking on the sublet post title, it should lead the user to the sublet post show page
+		-	Each student attribute will be displayed
+		-	There should be icons to edit and delete each property 
+
+-	Upon clicking the "Create New Sublet Post" button:
+	-	It should display a page with a form that allows the user to create a new sublet post 
+	-	After filling out the necessary information, the user should click on the create button, which will create the sublet post
+
+- Upon clicking the "Edit" button in each sublet post card:
+	-	It should display a new page to update the sublet post profile
+	-	After finishing updating, by clicking "Update" will update the account page with a message informing that they have updated.
+
+- Update clicking the "Delete" button in each property card:
+	-	It should display a pop up message asking the user to confirm they want to delete their profile 
+	- 	Upon clicking "Cancel", the user's profile will not be deleted
+	- 	Upon clicking "Ok", the user's profile will be deleted

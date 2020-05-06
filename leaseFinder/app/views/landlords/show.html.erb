@@ -1,0 +1,142 @@
+<%# Landlord account page %>
+<%# Edited on 4/15/2020 by Ern Chi Khoo: Added listings %>
+<%# Edited on 4/15/2020 by Ern Chi Khoo: Removed back button %>
+<%# Edited on 4/22/2020 by Ern Chi Khoo: Added bootstrap %>
+<%# Edited on 4/22/2020 by Ern Chi Khoo: Added session handling %>
+<%# Edited on 4/22/2020 by Ern Chi Khoo: Added icons to buttons %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="acc-details">
+  <% if landlord_logged_in? && current_landlord.id == @landlord.id %>
+    <h2>Account Details</h2>
+  <% else %>
+    <h2><%= @landlord.name %></h2>
+  <% end %>
+  <hr>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text"> 
+            <p>
+              <strong>Name:</strong>
+              <%= @landlord.name %>
+            </p>
+
+            <p>
+              <strong>Email:</strong>
+              <%= @landlord.email %>
+            </p>
+
+            <p>
+              <strong>Password:</strong>
+              <%= '*' %>
+            </p>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text"> 
+            <p>
+              <strong>Phone:</strong>
+              <%= @landlord.phone %>
+            </p>
+
+            <p>
+              <strong>Website:</strong>
+              <%= @landlord.website %>
+            </p>
+
+            <p>
+              <strong>Office:</strong>
+              <%= @landlord.office %>
+            </p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div>
+  <% if landlord_logged_in? && current_landlord.id == @landlord.id %>
+    <%= link_to edit_landlord_path(@landlord), {:class => "btn btn-primary btn-sm btn-secondary stu_button"} do %>
+      <i class="far fa-edit"></i>
+      Edit Profile
+    <% end %>
+    <%= link_to @landlord, method: :delete, :class => "btn btn-primary btn-sm btn-secondary stu_button", data: { confirm: "Are you sure?" } do %> 
+      <i class="far fa-trash-alt"></i>
+      Delete Profile
+    <% end %>
+  <% end%>
+  </div>
+</div>
+<div class='manage-properties'>
+  <% if landlord_logged_in? && current_landlord.id == @landlord.id %>
+    <h2>Manage Properties</h2>
+  <% else %>
+    <h2>Properties</h2>
+  <% end %>
+  <hr>
+  <% if landlord_logged_in? && current_landlord.id == @landlord.id %>
+    <%= link_to new_property_path, {:class => "btn btn-primary btn-secondary stu_button"} do %>
+      <i class="far fa-plus-square"></i>
+      Add New Listing
+    <% end %>
+  <% end %>
+
+  <% @properties.each do |prop| %>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+            <p class="card-text"> 
+            <p>  
+              <h4><%= prop.address %></h4>
+              <br>
+              <div class="landlord-table">
+                <table style="width: 100%; table-layout: fixed;">
+                  <tr style="width: 100%; text-align: center">
+                    <td>
+                      <i class="fas fa-bed fa-3x"></i>
+                      <div><strong>Total Bedrooms: </strong>
+                      <span><%= prop.total_bedrooms %><span></div>
+                    </td>
+                    <td>
+                      <i class="fas fa-toilet fa-3x"></i>
+                      <div><strong>Total Bathrooms: </strong>
+                      <span><%= prop.total_bathrooms %><span></div>
+                    </td>
+                    <td>
+                      <% if prop.pet_friendly %>
+                        <i class="fas fa-dog fa-3x true-util"></i>
+                      <%else %>
+                        <i class="fas fa-dog fa-3x false-util"></i>
+                      <%end %>
+                      <div><strong>Pet Friendly</strong></div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="edit-delete">
+                <br>
+                <% if landlord_logged_in? && current_landlord.id == @landlord.id %>
+                  <%= link_to edit_property_path(prop.id), {:class => "btn btn-primary prop-btn ed-del-btn"} do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                  <%= link_to prop, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary prop-btn ed-del-btn" do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+                <br>
+              </div>
+            </p>
+          </p>
+        </div>
+      </div>
+    </div>
+    <br>
+  <% end %>
+</div>

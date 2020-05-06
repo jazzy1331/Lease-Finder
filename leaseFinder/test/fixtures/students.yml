@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: Daniel
+  lname: Lim
+  email: lim.1185@osu.edu
+  password: bethel4lyfe
+  phone: 614-333-1234
+  dob: 1999-04-07
+

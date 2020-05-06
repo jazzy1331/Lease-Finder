@@ -1,0 +1,145 @@
+<!--
+  Edited 4/19/20 by Jas Bawa: Edited HTML code for user readability and added the property partial
+  Edited by Daniel Lim on 4/20/20: added if statement to the edit
+  Edited 4/21/20 by Jas Bawa: Moved everything into a bootstrap card layout, added icons for utilities
+  Edited 4/24/20 by Jas Bawa: Added precision to rent and added something if a field is blank
+  Edited 4/24/2020 by Juhee Park: Minor buf displying taken
+-->
+
+<p id="notice"><%= notice %></p>
+
+<h1><%=@property.address %></h1>
+
+<div class="card-deck d-flex justify-content-center">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h3 class="card-title">Lease Specifications</h3>
+      <p>
+        <strong>Occupants:</strong>
+        <%= @sublet_post.housemates_num %>
+      </p>
+      <p>
+        <strong>Bedrooms Available:</strong>
+        <%= @sublet_post.bedroom_num %>
+      </p>
+      <p>
+        <strong>Monthly rent:</strong>
+        $<%= number_with_precision(@sublet_post.monthly_rent, :precision =>2) %>
+      </p>
+      <p>
+        <strong>Sublease Start:</strong>
+        <%= @sublet_post.start_date %>
+      </p>
+
+      <p>
+        <strong>Sublease End:</strong>
+        <%= @sublet_post.end_date %>
+      </p>
+
+    </div>
+  </div>
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h3 class="card-title">Lease Details</h3>
+
+      <p>
+        <strong>Available:</strong>
+        <% if @sublet_post.taken %>
+          No
+        <%else %>
+          Yes
+        <%end %>
+      </p>
+
+      <p>
+        <strong>Furnished:</strong>
+        <% if @sublet_post.furnished_flag %>
+          Yes
+        <%else %>
+          No
+        <%end %>
+      </p>
+
+      <p>
+        <strong>Parking:</strong>
+        <% if @sublet_post.parking_flag %>
+          Available
+        <%else %>
+          Not Available
+        <%end %>
+      </p>
+
+      <p>
+        <strong>House Rules:</strong>
+        <% if @sublet_post.house_rules.length == 0 %>
+          N/A
+        <%else %>
+          <%= @sublet_post.house_rules %>
+        <%end %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <% if @sublet_post.description.length == 0 %>
+          N/A
+        <%else %>
+          <%= @sublet_post.description %>
+        <%end %>
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+      <h3 class="card-title">Included Utilities</h3>
+
+      <table style="width: 100%; table-layout: fixed;">
+
+        <tr style="width: 100%; text-align: center">
+          <% if @sublet_post.water_flag %>
+            <td data-toggle="tooltip" data-placement="bottom" title="Water Included" ><i class="fas fa-tint fa-5x true-util"></i></td>
+          <%else %>
+            <td data-toggle="tooltip" data-placement="bottom" title="Water Not Included"><i class="fas fa-tint fa-5x false-util"></i></td>
+          <%end %>
+
+          <% if @sublet_post.gas_flag %>
+            <td data-toggle="tooltip" data-placement="bottom" title="Gas Included"><i class="fas fa-oil-can fa-5x true-util"></i></td>
+          <%else %>
+            <td data-toggle="tooltip" data-placement="bottom" title="Gas Not Included"><i class="fas fa-oil-can fa-5x false-util"></i></td>
+          <%end %>
+
+          <% if @sublet_post.electric_flag %>
+            <td data-toggle="tooltip" data-placement="bottom" title="Electricity Included"><i class="fas fa-plug fa-5x true-util"></i></td>
+          <%else %>
+            <td data-toggle="tooltip" data-placement="bottom" title="Electricity Not Included"><i class="fas fa-plug fa-5x false-util"></i></td>
+          <%end %>
+
+          <% if @sublet_post.internet_flag %>
+            <td data-toggle="tooltip" data-placement="bottom" title="Internet Included"><i class="fas fa-wifi fa-5x true-util"></i></td>
+          <%else %>
+            <td data-toggle="tooltip" data-placement="bottom" title="Internet Not Included"><i class="fas fa-wifi fa-5x false-util"></i></td>
+          <%end %>
+
+          <% if @sublet_post.other_util_flag %>
+            <td data-toggle="tooltip" data-placement="bottom" title="Other Utils Included"><i class="fas fa-building fa-5x true-util"></i></td>
+          <%else %>
+            <td data-toggle="tooltip" data-placement="bottom" title="Other Utils Not Included"><i class="fas fa-building fa-5x false-util"></i></td>
+          <%end %>
+        </tr>
+      </table>
+  </div>
+</div>
+
+<%= render 'properties/show', id: @sublet_post.property_id %>
+
+<!--<%#= link_to 'Edit', edit_sublet_post_path(@sublet_post) %> |-->
+<%#= link_to 'Back', sublet_posts_path %>
+
+<% if student_logged_in? && current_student.id == @student.id %>
+  <%= link_to 'Edit', edit_sublet_post_path(@sublet_post) %> |
+<% end %>
+<%#= link_to 'Back', sublet_posts_path %>
+

@@ -1,0 +1,50 @@
+<!-- Edited by Lang Xu on 4/22/20: added bootstrap styling-->
+<div class = "text-center" style = "padding-top:0px">
+<%= form_with(model: landlord, local: true,html:{class:'form-login'}) do |form| %>
+  <% if landlord.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(landlord.errors.count, "error") %> prohibited this landlord from being saved:</h2>
+
+      <ul>
+      <% landlord.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name,class: "sr-only" %>
+    <%= form.text_field :name,class: 'form-control',placeholder: 'Company Name',style: "margin-bottom: 15px" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email,class: "sr-only" %>
+    <%= form.text_field :email,class: 'form-control',placeholder: 'Email Address',style: "margin-bottom: 15px" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password,class: "sr-only" %>
+    <%= form.text_field :password,class: 'form-control',placeholder: 'Password',style: "margin-bottom: 15px" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone,class: "sr-only" %>
+    <%= form.text_field :phone ,class: 'form-control',placeholder: 'Phone #',style: "margin-bottom: 15px"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :website,class: "sr-only" %>
+    <%= form.text_field :website,class: 'form-control',placeholder: 'Website URL',style: "margin-bottom: 15px" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :office,class: "sr-only" %>
+    <%= form.text_field :office,class: 'form-control',placeholder: 'Office Address',style: "margin-bottom: 15px" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Sign up as a new Landlord!",class: "btn btn-secondary"%>
+  </div>
+<% end %>
+</div>

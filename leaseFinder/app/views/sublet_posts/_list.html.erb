@@ -1,0 +1,41 @@
+<!-- app/views/sublet_posts/_list.html.erb
+  Created 4/20/2020 by Juhee Park: moved contents originally in index.html.erb
+  Edited 4/15/2020 by Juhee Park: Only show certain columns/information, show info from linked student and property
+  Edited 4/16/2020 by Lang Xu: added links to create a landlord or a student account
+  Edited 4/16/2020 by Lang Xu: deleted links of signing up and move those to the header
+  Edited by Daniel Lim on 4/20/20: added  if statement to the new
+  Edited 4/22/2020 by Juhee Park: bootstrap styling
+  Edited by Daniel Lim on 4/20/20: added  grid style
+  Edited 4/24/20 by Jas Bawa: Added icon to the add post button
+ -->
+<div id="filterrific_results">
+<br>
+
+<div class="cards-container">
+<div class="grid-container">
+  <% @sublet_posts.each do |sublet_post, property| %>
+    <div class="card" style="margin-bottom:20px;">
+      <div class="card-body">
+        <h5 class="card-title"><%= property.address %></h5>
+        <p class="card-text"><%= @students[sublet_post].fname + " " + @students[sublet_post].lname %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Available <%= sublet_post.start_date.strftime("%m/%d/%Y") %> - <%= sublet_post.end_date.strftime("%m/%d/%Y")  %></li>
+        <li class="list-group-item">Monthly rent: $<%= number_with_precision(sublet_post.monthly_rent, :precision =>2) %></li>
+      </ul>
+      <div class="card-body">
+        <%= link_to 'Show', sublet_post, {:class=>'btn btn-success stu_button'} %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+</div>
+<br>
+</div>
+<% if student_logged_in?%>
+  <%= link_to new_sublet_post_path, {:class => "btn btn-primary btn-sm btn-success stu_button"} do %>
+    <i class="far fa-plus-square"></i>
+    Create New Sublet Post
+  <% end %>
+<% end %>

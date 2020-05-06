@@ -1,0 +1,18 @@
+<!-- Edited by Daniel Lim on 4/16/20: made the index only display the name -->
+<!-- Edited by Daniel Lim on 4/21/20: made the cards for the name -->
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+    <% @students.each do |student| %>
+        <% full_name =  student.fname + " " + student.lname%>
+		<div class="card">
+		  <div class="card-body">
+		    <%= link_to full_name ,student, {:class => "name"} %>
+		  </div>
+		</div>
+    <% end %>
+
+<br>

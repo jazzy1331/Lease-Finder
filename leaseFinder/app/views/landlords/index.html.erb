@@ -1,0 +1,14 @@
+<!-- Edit 4/22/2020 by Ern Chi Khoo: Change CSS -->
+
+<p id="notice"><%= notice %></p>
+
+<h1>Landlords</h1>
+<% @landlords.each do |landlord| %>
+<div class="card">
+  <div class="card-body">
+    <%= link_to landlord.name, landlord, {:class => "name"} %>
+  </div>
+</div>
+<% end %>
+
+<br>

@@ -1,0 +1,9 @@
+<%# Edited 4/19/2020 by Ern Chi Khoo: removed show and back buttons, added cancel button %>
+<%# Edited 4/20/2020 by Ern Chi Khoo: CSS changes %>
+
+<h2>Edit Property</h2>
+<hr>
+
+<%= render 'form', property: @property %>
+
+<%= link_to 'Cancel', {controller: "landlords", action: "show", id: current_landlord}, {:class => "btn btn-primary btn-secondary stu_button"} %>

@@ -1,0 +1,83 @@
+<!-- 
+	File Created 4/15/2020 by Juhee Park
+	Edited by Lang Xu 4/19/2020, enabled nav bar changes according to log-in status
+	Edited by Daniel Lim 4/21/2020: added users to nav bar
+  Edited 4/22/2020 by Juhee Park: bootstrap styling
+ -->
+
+<header>	
+	<div class="top">
+		<!-- Go to the page clicked by the user  -->
+	    <nav class="navbar navbar-expand-lg ">
+				<span class="nav-title">Lease Finder</span>
+	    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   		 	<span class="navbar-toggler-icon"></span>
+  			</button>
+
+  			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			    	<li class="nav-item active">
+						<%= link_to root_path, :class=>"nav-link active" do%>
+						Home
+						<span class="sr-only">(current)</span>
+						<% end %>
+	        		</li>
+
+					<% if student_logged_in? %> 
+						<li class="nav-item active">
+							<%= link_to current_student, :class=>"nav-link" do%>
+							Student Profile
+							<span class="sr-only">(current)</span>
+							<% end %>
+		        		</li>	
+
+						<li class="nav-item active">
+							<%= link_to logout_path, method: "delete", :class=>"nav-link" do%>
+							Log Out
+							<span class="sr-only">(current)</span>
+							<% end %>
+		        		</li>
+
+					<% elsif landlord_logged_in? %>
+						<li class="nav-item active">
+							<%= link_to current_landlord, :class=>"nav-link" do%>
+							Landlord Profile
+							<span class="sr-only">(current)</span>
+							<% end %>
+		        		</li>	
+
+						<li class="nav-item active">
+							<%= link_to logout_path, method: "delete", :class=>"nav-link" do%>
+							Log Out
+							<span class="sr-only">(current)</span>
+							<% end %>
+		        		</li>
+
+					<% else %>
+						<li class="nav-item active dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target=#navItemLogin>
+					          Log In
+					        </a>
+					        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navItemLogin">
+								<%= link_to "Student", login_student_path, :class=>"dropdown-item"%>
+								<div class="dropdown-divider"></div>
+								<%= link_to "Landlord", login_landlord_path, :class=>"dropdown-item" %>
+							</div>
+		        		</li>
+
+		        		<li class="nav-item active dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target=#navItemSignup>
+					          Sign up
+					        </a>
+					        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navItemSignup">
+								<%= link_to "New Student", new_student_path, :class=>"dropdown-item"%>
+								<div class="dropdown-divider"></div>
+								<%= link_to "New Landlord", new_landlord_path, :class=>"dropdown-item" %>
+							</div>
+		        		</li>
+					<% end %>
+			    </ul>
+			</div>	    	
+		</nav>
+	</div>	
+</header>

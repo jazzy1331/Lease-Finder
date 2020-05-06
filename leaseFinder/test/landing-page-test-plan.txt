@@ -1,0 +1,69 @@
+Testing documentation for landing/home page & navbar
+File created on 4/24/2020 by Juhee Park
+
+Test Plan for landing page & nav bar
+
+- General
+	- Page title, "Sublet Posts" is visible
+	- Form for filtering and sorting sublet posts visible
+	- Results for sublet posts visibls
+
+- Navigation Bar
+	- App title, "Lease Finder" is visible
+	- "Home" button links to home page / refreshes the page if already on home page
+	- "Log in" button reveals a dropdown of "Student" button which links to Student log in page and "Landlord" button which links to Landlord log in page
+	- "Sign up" button reveals a dropdown of "Student" button which links to new student sign up page and "Landlord" button which links to new landlord sign up page
+	- If window is made small enough, navigation bar reduces to just "Lease Finder" and a dropdown with all the buttons mentioned above.
+	- Navigation bar has a gray color
+	- The drop down buttons slightly darken when hovered over
+
+- Filter / Sort Functionality
+	- Separated into its own section of the page, in a gray card
+	- "Latest Start Date" takes date input
+		- User is unable to enter a non-date input
+		- Returns sublet posts whose availability starts before or on the date given
+	- "Earliest End Date" takes date input
+		- User is unable to enter a non-date input
+		- Returns sublet posts whose availability ends on or after the date given
+	- "Min monthly rent" takes integer input
+		- When user inputs a non-integer and clicks "Apply Filter" a message indicates to the user that input is not valid
+		- Returns sublet posts whose monthly rent is greater than or equal to given number
+	- "Max monthly rent" takes integer input
+		- When user inputs a non-integer and clicks "Apply Filter" a message indicates to the user that input is not valid
+		- Returns sublet posts whose monthly rent is less than or equal to given number
+	- "Number of Housemates" takes integer input
+		- When user inputs a non-integer and clicks "Apply Filter" a message indicates to the user that input is not valid
+		-Returns sublet posts whose number of housemates equals given number
+	- "Number of Bedrooms Available" takes integer input
+		- When user inputs a non-integer and clicks "Apply Filter" a message indicates to the user that input is not valid
+		-Returns sublet posts whose number of bedrooms available equals given number
+	- "Furnished" is a dropdown with options "Any", "Yes", and "No"
+		- "Yes" returns sublet posts that are furnished
+		- "No" returns sublet posts not furnished
+	- "Parking" is a dropdown with options "Any", "Yes", and "No"
+		- "Yes" returns sublet posts that have parking
+		- "No" returns sublet posts that don't have parking
+	- "Pet Friendly" is a dropdown with options "Any", "Yes", and "No"
+		- "Yes" returns sublet posts that are pet-friendly
+		- "No" returns sublet posts not pet-friendly
+	- "Sorted by" is a dropdown
+		- Default option is shown, and is "Registration date (newest first)"
+		- Other options are visible and should work expectedly. They include
+			- "Registration date (oldest first)"
+			- "Monthly rate (low to high)"
+			- "Monthly rate (high to low)"
+			- "Start date (earliest first)"
+			- "End date (latest first)"
+	- "Reset filters" resets all the input boxes in the filter form
+	- "Apply Filter" button submits the inputs and refreshes the results. Filters are not applied until this button is clicked.
+
+- Sublet Posts Results
+	- Each post is in a card that shows
+		- Address
+		- Name of user who created the post
+		- Dates available (start - end)
+		- Cost of monthly rent
+		- "Show" button which links to a page that shows more information about the post and the property
+	- Result is arranged in 3 columns
+	- Sorting goes from left to right and top to bottom
+	

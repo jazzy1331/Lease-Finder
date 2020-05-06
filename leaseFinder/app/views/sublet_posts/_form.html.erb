@@ -1,0 +1,132 @@
+<!--
+  Edited by Daniel Lim on 4/20/20: added student id and added collection select for property id
+  Edited by Daniel Lim on 4/21/20: added cards style
+  Edited by Jas Bawa 4/24/20: Updated button to be Bootstrap style and added label
+  Edited by Juhee Park 4/24/2020: Make all inputs required and change date input format
+-->
+
+<%= form_with(model: sublet_post, local: true) do |form| %>
+  <% if sublet_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sublet_post.errors.count, "error") %> prohibited this sublet_post from being saved:</h2>
+
+      <ul>
+      <% sublet_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="card-deck d-flex justify-content-center">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h3 class="card-title">Lease Specifications</h3>
+      <div class="field">
+        <%= form.label :housemates_num %>
+        <%= form.number_field :housemates_num, min: "0", :required => true%>
+      </div>
+      <div class="field">
+        <%= form.label :bedroom_num %>
+        <%= form.number_field :bedroom_num, min: "0", :required => true %>
+      </div>
+      <div class="field">
+        <%= form.label :monthly_rent %>
+        <%= form.text_field :monthly_rent, :required => true %>
+      </div>
+      <div class="field">
+        <%= form.label :start_date %>
+        <%= form.text_field :start_date, min: Date.today, class: 'form-control', id:"example-date-input", type:"date", :required => true %>
+      </div>
+
+      <div class="field">
+        <%= form.label :end_date %>
+        <%= form.text_field :end_date, min: Date.today, class: 'form-control', id:"example-date-input", type:"date", :required => true %>
+      </div>
+
+    </div>
+  </div>
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h3 class="card-title">Utilities Included in Monthly Rent</h3>
+      <div class="field">
+        <%= form.label "Water"%>
+        <%= form.check_box :water_flag %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Gas" %>
+        <%= form.check_box :gas_flag %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Electric" %>
+        <%= form.check_box :electric_flag %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Internet" %>
+        <%= form.check_box :internet_flag %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Other" %>
+        <%= form.check_box :other_util_flag %>
+      </div>
+      <h3 class="card-title">Other Details</h3>
+
+      <div class="field">
+        <%= form.label "Furnished?" %>
+        <%= form.check_box :furnished_flag %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Parking available?" %>
+        <%= form.check_box :parking_flag %>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="card-deck d-flex justify-content-center">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h3 class="card-title">Lease Details</h3>
+       <div class="field">
+          <%= form.label :house_rules %>
+          <%= form.text_area :house_rules %>
+        </div>
+
+        <div class="field">
+          <%= form.label :taken %>
+          <%= form.check_box :taken %>
+        </div>
+
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_area :description %>
+        </div>
+        <div class="field">
+          Property<br>
+          <%= collection_select :sublet_post, :property_id, @properties, :id, :address, {:prompt => 'Choose property address'}, {:required => true} %>
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div class="field">
+    <%= form.hidden_field :student_id, :value => current_student.id %>
+  </div>
+  <% if @edit == 1%>
+    <div class="actions">
+      <%= form.submit "Update", class: "btn btn-success" %>
+    </div>
+  <% else %>
+    <div class="actions">
+      <%= form.submit "Create", class: "btn btn-success" %>
+    </div>
+  <% end %>
+
+
+<% end %>
+

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  housemates_num: 1
+  monthly_rent: 1.5
+  water_flag: false
+  gas_flag: false
+  electric_flag: false
+  internet_flag: false
+  other_util_flag: false
+  start_date: 2020-04-07
+  end_date: 2020-04-07
+  bedroom_num: 1
+  furnished_flag: false
+  parking_flag: false
+  house_rules: MyText
+  taken: false
+  description: MyText
+
+two:
+  housemates_num: 1
+  monthly_rent: 1.5
+  water_flag: false
+  gas_flag: false
+  electric_flag: false
+  internet_flag: false
+  other_util_flag: false
+  start_date: 2020-04-07
+  end_date: 2020-04-07
+  bedroom_num: 1
+  furnished_flag: false
+  parking_flag: false
+  house_rules: MyText
+  taken: false
+  description: MyText

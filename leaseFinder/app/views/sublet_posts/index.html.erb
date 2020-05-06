@@ -1,0 +1,97 @@
+<!-- 
+
+  Edited 4/20/20 by Juhee Park: move original content to list.html.erb and add here filterrific form
+  Edited 4/21/20 by Juhee Park: add tag attributes like class names
+  Edited 4/22/2020 by Juhee Park: bootstrap styling
+  Edited 4/22/2020 by Juhee Park: add min=0 for number fields
+
+-->
+
+<p id="notice"><%= notice %></p>
+
+<h1>Sublet Posts</h1>
+
+<div class="card text-center" style="width: 100%;">
+  <div class="card-header" >
+    Filter and Sort
+  </div>
+  <div class="card-body">
+  <%= form_for_filterrific @filterrific, html: {id: 'filterrific-no-ajax-auto-submit', class:'form-inline'} do |f| %>
+
+    <div class="form-group row">
+      <div class="col">
+        <label>Latest start date</label>
+        <%= f.text_field(:with_start_date, class:"form-control", id:"inline-example-date-input", type:"date") %>
+      </div>
+      <div class="col">
+        <label>Earliest end date</label>
+        <%= f.text_field(:with_end_date, class:"form-control", id:"example-date-input", type:"date") %>
+      </div>
+      <div class="col">
+        <label>Min monthly rent</label>
+        <%= f.text_field(:with_min_monthly_rent, :min => "0", class:"form-control", id:"example-number-input", type:"number") %>
+      </div>
+      <div class="col">
+        <label>Max monthly rent</label>
+        <%= f.text_field(:with_max_monthly_rent, :min => "0", class:"form-control", id:"example-number-input", type:"number") %>
+      </div>
+      <div class="col">
+        <label>Number of Housemates</label>
+        <%= f.text_field(:with_housemates_num, :min => "0", class:"form-control", id:"example-number-input", type:"number") %>
+      </div>
+
+    </div>
+
+    <div class="form-group row">
+
+      <div class="col">
+        <label>Number of Bedrooms Available</label>
+        <%= f.text_field(:with_bedroom_num, :min => "0", class:"form-control", id:"example-number-input", type:"number") %>
+      </div>
+      <div class="col">
+        <label>Furnished</label>
+        <%= f.select(
+          :with_furnished,
+          @filterrific.select_options[:with_furnished],
+          { include_blank: '- Any -' }, class:"form-control", id:"exampleSelect1"
+        ) %>
+      </div>
+      <div class="col">
+        <label>Parking</label>
+        <%= f.select(
+          :with_parking,
+          @filterrific.select_options[:with_parking],
+          { include_blank: '- Any -' }, class:"form-control", id:"exampleSelect1"
+        ) %>
+      </div>
+      <div class="col">
+        <label>Pet Friendly</label>
+        <%= f.select(
+          :with_pet_friendly,
+          @filterrific.select_options[:with_pet_friendly],
+          { include_blank: '- Any -' }, class:"form-control", id:"exampleSelect1"
+        ) %>
+      </div>
+      <div class="col">
+        <label>Sorted by</label>
+        <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], {include_blank: false}, class:"form-control", id:"exampleSelect1") %>
+      </div>
+      <div class="col">
+        <%= link_to('Reset filters',reset_filterrific_url) %>
+      </div>
+
+      <div class="col">
+    <%= f.submit 'Apply Filter' %>
+      </div>
+    </div>
+</div>
+
+<% end %>
+</div>
+
+<%= render(
+  partial: 'sublet_posts/list',
+  locals: { sublet_posts: @sublet_posts }
+) %>
+
+

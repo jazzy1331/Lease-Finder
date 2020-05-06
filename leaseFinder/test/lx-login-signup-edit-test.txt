@@ -1,0 +1,59 @@
+Testing Document for Log-in, Sign-up, Edit Account pages, log-in functionality and sign-up functionality.
+
+Created by Lang Xu 4/24/2020
+
+-When not logged in, the home nav bar should display log in option as well as a sign up option
+
+-student account log in functionality
+    -when user chooses to log in as a student from the nav-bar in the home page, he/she should be directed to the log in page
+     where a neat form is displayed with an e-mail field and a password field.
+    -each field should have a placeholder indicationg the content for the field
+    -under fields, a log in button should be displayed with correct css styling
+    -under the log in button, buttons for new student account and new landlord account should be displayed with correct css styling
+
+    -user should be able to type in their credentials into the designated fields.
+    -when typing passwords, passwords field should hide the actual password
+
+    -when the credentials matched and the user clicked the login button
+        -the student should be directed to the account page.
+        -nav bar status should be changed to displaying student profile tab and log out tab instead of log in and sign up tabs
+        -student should be able to click on the buttons listed on the page
+        -when student hits the edit profile page
+            - student should be directed to the edit account page with a neat form displayed
+            - student should be able to edit their credentials and update them
+            - upon updating, student must fill in the password field
+            - if any text in the fields doesn't match criteria, error messages should appear
+            - upon update, student should be redirected to their account page
+    -when the credentials didn't match, a correctly styled error message should display indicating invalid password/email combination
+
+-landlord account log in functionality
+    -when user chooses to log in as a landlord from the nav-bar in the home page, he/she should be directed to the log in page
+     where a neat form is displayed with an e-mail field and a password field.
+    -each field should have a placeholder indicationg the content for the field
+    -under fields, a log in button should be displayed with correct css styling
+    -under the log in button, buttons for new student account and new landlord account should be displayed with correct css styling
+
+    -user should be able to type in their credentials into the designated fields.
+    -when typing passwords, passwords field should hide the actual password
+
+    -when the credentials matched and the user clicked the login button
+        -the landlord should be directed to the account page.
+        -nav bar status should be changed to displaying landlord profile tab and log out tab instead of log in and sign up tabs
+        -landlord should be able to click on the buttons listed on the page
+        -when landlord hits the edit profile page
+            - landlord should be directed to the edit account page with a neat form displayed
+            - landlord should be able to edit their credentials and update them
+            - upon updating, landlord must fill in the password field
+            - if any text in the fields doesn't match criteria, error messages should appear
+            - upon update, landlord should be redirected to their account page
+    -when the credentials didn't match, a correctly styled error message should display indicating invalid password/email combination
+
+Sign up functionality
+    - when a user clicked on the signup tab in the nav bar
+        - The user should be directed to student/landlord sign up page as he/she chooses
+        - the sign up page form should be neat and correctly styled
+
+    - After the user pressed sign up button to submit the form
+        - A new student or landlord account should be created correctly
+        - the user should be redirected to the new student/landlord account page
+        

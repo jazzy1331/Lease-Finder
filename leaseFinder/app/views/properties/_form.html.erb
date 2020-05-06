@@ -1,0 +1,52 @@
+<%# Edited 4/15/2020 by Ern Chi Khoo: Removed the landlord_email field in the form %>
+<!--Edited 4/24/20 by Jas Bawa: Updated design to bootstrap elements-->
+<!--Edited 4/24/20 by Ern Chi Khoo: Update to button text -->
+
+<%= form_with(model: property, local: true) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%# Hidden field contains the landlord_id %>
+  <div class="field">
+    <%= form.hidden_field :landlord_id, :value => current_landlord.id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: "form-control", style: "width: 300px" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_bedrooms %>
+    <%= form.number_field :total_bedrooms, class: "form-control", style: "width: 300px", min: "0" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_bathrooms %>
+    <%= form.number_field :total_bathrooms, class: "form-control", style: "width: 300px", min: "0", value: "0" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_friendly %>
+    <%= form.check_box :pet_friendly, class: "form-control", style: "width: 10px", value: "0" %>
+  </div>
+
+  <% if @edit == 1%>
+    <div class="actions">
+      <%= form.submit "Update", class: "btn btn-success" %>
+    </div>
+  <% else %>
+    <div class="actions">
+      <%= form.submit "Create", class: "btn btn-success" %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,26 @@
+<!--Edited 4/16/20 by Jas Bawa: Changed stuff to match current Schema-->
+<!--Edited 4/24/20 by Jas Bawa: Changed data shown and added button to the home-->
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @review.student.fname %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @review.property.address %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @review.review %>
+</p>
+
+<p>
+  <strong>Stars:</strong>
+  <%= @review.stars %>
+</p>
+
+<%=link_to "Home", root_url, class: "btn btn-success stu_button" %>

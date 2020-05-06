@@ -1,0 +1,76 @@
+<!--Edited 4/15/20 by Jas Bawa: Changed information being displayed and added headers-->
+<!--Edited 4/19/20 by Jas Bawa: Added the partial form for the new review-->
+
+<p id="notice"><%= notice %></p>
+
+
+<h1><%=@property.address %></h1>
+
+<h3>Landlord Info</h3>
+
+<p>
+
+  <strong>Name:</strong>
+  <%= @property.landlord.name %>
+
+  <strong>Landlord email:</strong>
+  <%= @property.landlord_id %>
+
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @property.landlord.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @property.landlord.phone %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @property.landlord.website %>
+</p>
+
+<h3>Property Specifications</h3>
+
+<p>
+  <strong>Bedrooms:</strong>
+  <%= @property.total_bedrooms %>
+</p>
+
+<p>
+  <strong>Bathrooms:</strong>
+  <%= @property.total_bathrooms %>
+</p>
+
+<p>
+  <strong>Pet Friendly?:</strong>
+  <% if @property.pet_friendly %>
+    Yes!
+  <%else %>
+    No
+  <%end %>
+</p>
+
+<h3>Reviews</h3>
+
+<%@reviews.each do |review| %>
+  <p>
+    <%=review.student.fname %>
+    <%=review.student.lname %>
+    <br>
+  <%review.stars.times do %>
+    *
+  <%end %>
+  <%= review.review %>
+  </p>
+
+<%end %>
+
+
+<%= render 'reviews/form', review: @all_reviews%>
+
+<!--<%#= link_to 'Edit', edit_property_path(@property) %> |-->
+<%#= link_to 'Back', properties_path %>

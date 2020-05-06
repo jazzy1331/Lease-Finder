@@ -1,0 +1,23 @@
+= ..ttaabbllee
+
+(from ruby core)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  CCSSVV
+------------------------------------------------------------------------
+  table(path, **options)
+
+------------------------------------------------------------------------
+
+A shortcut for:
+
+  CSV.read( path, { headers:           true,
+                    converters:        :numeric,
+                    header_converters: :symbol }.merge(options) )
+
+
+(from ruby core)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  CCSSVV::::TTaabbllee
+------------------------------------------------------------------------
+
+Internal data format used to compare equality.
+
+

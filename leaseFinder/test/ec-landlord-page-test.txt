@@ -1,0 +1,46 @@
+Testing documentation for landlord account page
+File created on 4/23/2020 by Ern Chi Khoo
+
+Test Plan for the landlord profile page 
+
+- The title of the page, "Lease Finder", is visible 
+
+- Navigation Bar is visible and each link connects to the appropriate page when clicked
+
+- In the "Account Details" section:
+	-	The account details should be displayed and visible, except for the password which was deliberately noted as "*"
+	-	The details displayed should be accurate with latest data from the database 
+	-	Two buttons, "Edit Profile" and "Delete Profile" should be visible and link to the appropriate pages when clicked 
+
+- Upon clicking the "Edit Profile" button:
+	-	It should display a page with a form that allows the user to update their details  
+	-	Upon clicking the "Update it!" button, the user should be directed to the profile page with a message informing them their profile has been updated 
+
+- Update clicking the "Delete Profile" button:
+	-	It should display a pop up message asking the user to confirm they want to delete their profile 
+	- 	Upon clicking "Cancel", the user's profile should not be deleted and they remain on the profile page 
+	- 	Upon clicking "Ok", the user's profile will be deleted
+
+- In the "Manage Properties" section:
+	- 	There should be a "Add New Listing" button
+	-	There should be a list of properties that were created under the landlord's profile, each within a card
+	-	In each property card:
+		- 	The address of the property should be displayed at the top of the card
+		-	Each property attribute should be accompanied with an icon and a text at the bottom with the details 
+		-	The "Pet Friendly" icon should be green in color if the property is pet friendly, grey if not
+		-	There should be icons to edit and delete each property 
+
+-	Upon clicking the "Add New Listing" button:
+	-	It should display a page with a form that allows the user to create a new property 
+	-	Clicking the "Create Property" button will create the new property and redirect the user back to their profile page where their new listing will be displayed
+	-	Clicking the "Cancel" button will redirect the user back to their profile page 
+
+- Upon clicking the "Edit" button in each property card:
+	-	It should display a page with a form that allows the user to update the details of their property 
+	-	It should have a button that allows the user to update their property upon clicking it 
+	-	Upon clicking the "Update" button, the user should be directed to the profile page with a message informing them their property has been updated 
+
+- Update clicking the "Delete" button in each property card:
+	-	It should display a pop up message asking the user to confirm they want to delete that property 
+	- 	Upon clicking "Cancel", the property should not be deleted and they remain on the profile page 
+	- 	Upon clicking "Ok", the user's property will be deleted

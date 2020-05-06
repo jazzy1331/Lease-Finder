@@ -1,0 +1,130 @@
+<!-- Edited by Daniel Lim on 4/16/20: change all the set up and added new sublet post and edit -->
+<!-- Edited by Daniel Lim on 4/19/20: added bootstrap -->
+<!-- Edited by Daniel Lim on 4/20/20: added if statement to edit delete and new -->
+<!-- Edited by Daniel Lim on 4/21/20: added buttons, class names and more information in the sublet post -->
+<!-- Edited by Daniel Lim on 4/22/20: added small changes -->
+<!-- Edited by Ern Chi Khoo on 4/22/20: added icons to buttons -->
+<!--Edited by Jas Bawa on 4/24/20: Fixed a mismatched tag and added precision to rent-->
+
+<p id="notice"><%= notice %></p>
+
+<div class="top">
+  <div><h1 class="heading">Account</h1></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <p class="card-text"> 
+          <p>
+            <strong>First Name:</strong>
+            <span class="answer"><%= @student.fname %></span>
+          </p>
+          <p>
+            <strong>Last Name:</strong>
+            <span class="answer"><%= @student.lname %></span>
+          </p> 
+          <p>
+              <strong>Email:</strong>
+              <span class="answer"><%= @student.email %></span>
+          </p>   
+        </p>  
+      </div>
+    </div>
+  </div>
+  <% if current_student.id == @student.id%>
+    <div class="col-sm-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <p class="card-text"> 
+            <p>
+              <strong>Password:</strong>
+              <span class="answer"><%= "*" %></span>
+            </p>
+             <p>
+              <strong>Phone Number:</strong>
+              <span class="answer"><%= @student.phone %></span>
+            </p>
+
+            <p>
+              <strong>Date of Birth:</strong>
+              <span class="answer"><%= @student.dob %></span>
+            </p>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br>
+<div>
+  <% if student_logged_in? && current_student.id == @student.id%>
+    <%= link_to edit_student_path(@student), {:class => "btn btn-primary btn-sm btn-secondary stu_button"} do%>
+      <i class="far fa-edit"></i>
+      Edit Profile
+    <% end %> 
+    <%= link_to @student, method: :delete, :class => "btn btn-primary btn-sm btn-secondary stu_button", data: { confirm: "Are you sure?" } do %> 
+      <i class="far fa-trash-alt"></i>
+      Delete Profile
+    <% end %>
+  <% end %> 
+</div>
+<div>
+  <h3 class="sublet_post_heading">Sublet Post</h3>
+  <% if student_logged_in? && current_student.id == @student.id%>
+    <%= link_to new_sublet_post_path, {:class => "btn btn-primary btn-sm btn-secondary stu_button"} do %>
+      <i class="far fa-plus-square"></i>
+      Create New Sublet Post
+    <% end %>
+  <% end %>
+  <% @sublet_posts.each do |sublet_post| %>
+      <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to 'Sublet Post', sublet_post, {:class => "post stu_sec_button"}%></h5>
+        <p class="card-text">
+          <div class="col-sm-12" > 
+            <div class="left" >
+              <h6>Lease Specifications</h6>
+              <div><strong>Monthly rent: $</strong>
+                <span class="answer"><%=number_with_precision(sublet_post.monthly_rent, :precision =>2) %></span></div>
+              <div><strong>Start Date:</strong>
+                <span class="answer"><%= sublet_post.start_date %></span></div>
+              <div><strong>End Date:</strong>
+                <span class="answer"><%= sublet_post.end_date %></span></div>
+              <div><strong>Bedroom Number:</strong>
+                <span class="answer"><%= sublet_post.bedroom_num %></span></div>
+            </div> 
+            <div class="right" >
+              <h6>Lease Details</h6>
+              <div><strong>Housemates Number:</strong>
+                <span class="answer"><%= sublet_post.housemates_num %></span></div>
+              <div><strong>Description:</strong>
+               <span class="answer"><%= sublet_post.description %></span></div>
+              <div><strong>House Rules:</strong>
+                <span class="answer"><%= sublet_post.house_rules %></span></div>
+              <div>  <strong>Available:</strong>
+                    <% if sublet_post.taken %>
+                      Yes
+                    <%else %>
+                      No
+                    <%end %>
+              </div>
+            </div>
+        </div>
+
+        </p>
+        <% if student_logged_in? && current_student.id == @student.id %>
+          
+
+          <%= link_to edit_sublet_post_path(sublet_post.id), {:class => "btn btn-primary ed-del-btn"} do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+          <%= link_to sublet_post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary ed-del-btn" do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+       <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
